@@ -27,11 +27,7 @@ const App: () => React$Node = () => {
             name="Home"
             component={Home}
             options={{ 
-              title: '',
-              headerStyle: {
-                backgroundColor: '#f4511e',
-              },
-              headerTintColor: '#fff',
+              headerShown: false
            }}
           />
           <Stack.Screen 

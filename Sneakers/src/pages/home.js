@@ -1,6 +1,7 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { Image, StyleSheet, Text, View } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 
 export default function Home() {
 
@@ -8,17 +9,28 @@ export default function Home() {
 
     return (
         <View style={styles.container}>
+            {/* Header */}
             <View style={styles.header}>
+                {/* Banner */}
                 <Image style={styles.header_banner} source={require('../images/home/banner.png')}/>
+            
+                {/* Menu */}
+                <View style={styles.header_menu}>
+                    <Text style={[styles.classTitle, styles.header_menu_title,]}>
+                        Sapatos
+                    </Text>
+
+                    <Icon name="reorder" size={40} color="#000" />
+                </View>
             </View>
 
-            <View style={styles.header_menu}>
-                <Text style={styles.header_menu_title}>
-                    Sapatos
-                </Text>
+            {/* HR */}
+            <View style={styles.classHr}></View>
 
-                <Icon name="reorder" size={40} color="#000" />
-            </View>
+            {/* Products || Sneakers */}
+            <ScrollView style={styles.products}>
+                
+            </ScrollView>
         </View>
     )
 }
@@ -29,6 +41,17 @@ const styles = StyleSheet.create({
     },
 
     // Class
+    classTitle: {
+        fontFamily: 'Anton-Regular',
+        fontSize: 30,
+        textTransform: "uppercase",
+        fontWeight: "100",
+    },
+    classHr: {
+        height: 1,
+
+        backgroundColor: "#000",
+    },
 
 
 
@@ -40,8 +63,12 @@ const styles = StyleSheet.create({
     },
 
     // Menu
-    // Title
-    header_menu_title:{
-        fontFamily: 'Open Sans'
+    header_menu: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+
+        paddingVertical: 5,
+        paddingHorizontal: 10,
     },
+    // Title
 })

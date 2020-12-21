@@ -8,36 +8,18 @@
 
 import 'react-native-gesture-handler';
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+import {NavigationContainer} from '@react-navigation/native'
+import {createDrawerNavigator} from '@react-navigation/drawer';
 import { StatusBar } from 'react-native';
 
 import Home from './src/pages/home';
 import Detail from './src/pages/detail';
 
-const App: () => React$Node = () => {
-  const Stack = createStackNavigator();
+const drawer = createDrawerNavigator(
+  {
+    Homeinc: Home,
+    Detailhes: Detail,
+  },
+)
 
-  return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen 
-            name="Home"
-            component={Home}
-            options={{ 
-              headerShown: false
-           }}
-          />
-          <Stack.Screen 
-            name="Detail"
-            component={Detail}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </>
-  );
-};
-
-export default App;
+export default NavigationContainer(drawer);
